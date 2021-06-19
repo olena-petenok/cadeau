@@ -1,5 +1,7 @@
+import BlocksOfCardsWithShowMore from "./components/BlocksOfCardsWithShowMore";
+
 function App() {
-  return <div className="">qwerty</div>;
+  return <BlocksOfCardsWithShowMore />;
 }
 
 export default App;
