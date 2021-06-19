@@ -1,3 +1,5 @@
+import "./index.scss";
+
 const InfoCardWithShowMore = ({ data = null }) =>
   data?.image && data?.alt && data?.name && data?.description ? (
     <li className="info-card-with-show-more">

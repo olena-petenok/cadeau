@@ -1,0 +1,35 @@
+@mixin text-overflow-ellipsis($max-width: 100%) {
+  max-width: $max-width;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin text-overflow-ellipsis-after-multiple-lines-parent($max-height) {
+  max-height: $max-height;
+}
+@mixin text-overflow-ellipsis-after-multiple-lines(
+  $max-width: 100%,
+  $max-height: 100%,
+  $amount-of-lines: 3
+) {
+  max-width: $max-width;
+  max-height: $max-height;
+
+  display: -webkit-box;
+  -webkit-line-clamp: $amount-of-lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+@mixin transparent-button() {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}

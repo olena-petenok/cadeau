@@ -2,6 +2,8 @@ import InfoCardWithShowMore from "./InfoCardWithShowMore";
 
 import { cats } from "../../resources/dictionaries/index";
 
+import "./index.scss";
+
 const BlocksOfCardsWithShowMore = () =>
   cats?.length ? (
     <ul className="blocks-of-cards-with-show-more">
