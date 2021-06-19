@@ -1,7 +1,11 @@
 @import "../../../resources/mixins/index.scss";
 
+$color-grey: #808080;
+
 $info-card-max-width: 300px;
 $wrapper-size: 20px;
+
+$image-scale: 1.25;
 
 .info-card-with-show-more {
   max-width: $info-card-max-width;
@@ -11,13 +15,52 @@ $wrapper-size: 20px;
   flex-direction: column;
   align-items: center;
 
-  .info-card-with-show-more-image {
-  }
-
   .info-card-with-show-more-text-name {
+    padding-bottom: 15px;
+
     text-align: center;
     font-size: 18px;
 
     @include text-overflow-ellipsis($info-card-max-width - $wrapper-size * 2);
+  }
+
+  .info-card-with-show-more-button-show-more {
+    @include transparent-button();
+  }
+
+  .info-card-with-show-more-image {
+    transform: scale(1, 1);
+  }
+
+  &.active {
+    max-width: 100%;
+    position: relative;
+
+    .info-card-with-show-more-image {
+      transform: scale($image-scale, $image-scale);
+      @include transition();
+    }
+
+    .info-card-with-show-more-description-block {
+      position: absolute;
+      bottom: 0;
+
+      min-width: 100%;
+      border: 1px solid $color-grey;
+      padding-top: 15px;
+
+      text-align: center;
+
+      .info-card-with-show-more-description-block-text {
+        font-size: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .info-card-with-show-more-description-block-button {
+        @include transparent-button();
+        font-size: 16px;
+      }
+    }
   }
 }

@@ -42,3 +42,6 @@ export const cats = [
       "The Balinese, also known as Javanese depending on coat color and pattern, is regal and aristocratic in appearance, but a curious kitten at heart.",
   },
 ];
+
+export const BUTTON_TEXT_SHOW_MORE = "More info...";
+export const BUTTON_TEXT_SHOW_MORE_HIDE = "Hide";

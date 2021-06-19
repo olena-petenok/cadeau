@@ -1,16 +1,58 @@
+import { useState } from "react";
+import classnames from "classnames";
+
+import {
+  BUTTON_TEXT_SHOW_MORE,
+  BUTTON_TEXT_SHOW_MORE_HIDE,
+} from "../../../resources/dictionaries/index";
+
 import "./index.scss";
 
-const InfoCardWithShowMore = ({ data = null }) =>
-  data?.image && data?.alt && data?.name && data?.description ? (
-    <li className="info-card-with-show-more">
+const InfoCardWithShowMore = ({ data = null }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  const handleSetShowMore = () => setShowMore(true);
+  const handleResetShowMore = () => setShowMore(false);
+
+  return data?.image && data?.alt && data?.name && data?.description ? (
+    <li
+      className={classnames("info-card-with-show-more", {
+        active: showMore,
+      })}
+    >
       <img
         className="info-card-with-show-more-image"
         alt={data.alt}
         src={data.image}
       />
 
-      <p className="info-card-with-show-more-text-name">{data.name}</p>
+      {!showMore ? (
+        <>
+          <p className="info-card-with-show-more-text-name">{data.name}</p>
+
+          <button
+            className="info-card-with-show-more-button-show-more"
+            onClick={handleSetShowMore}
+          >
+            {BUTTON_TEXT_SHOW_MORE}
+          </button>
+        </>
+      ) : (
+        <div className="info-card-with-show-more-description-block">
+          <p className="info-card-with-show-more-description-block-text">
+            {data.description}
+          </p>
+
+          <button
+            className="info-card-with-show-more-description-block-button"
+            onClick={handleResetShowMore}
+          >
+            {BUTTON_TEXT_SHOW_MORE_HIDE}
+          </button>
+        </div>
+      )}
     </li>
   ) : null;
+};
 
 export default InfoCardWithShowMore;

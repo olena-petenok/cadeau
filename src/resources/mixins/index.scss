@@ -23,7 +23,15 @@
   white-space: normal;
 }
 
-@mixin transparent-button() {
+@mixin transparent-button(
+  $button-padding-horizontal: 15px,
+  $button-padding-vertical: 8px
+) {
+  padding-left: $button-padding-horizontal;
+  padding-right: $button-padding-horizontal;
+  padding-top: $button-padding-vertical;
+  padding-bottom: $button-padding-vertical;
+
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -32,4 +40,8 @@
   &:focus {
     outline: none;
   }
+}
+
+@mixin transition($duration: 0.3s) {
+  transition: all $duration ease-out;
 }

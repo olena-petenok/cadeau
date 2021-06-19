@@ -1,7 +1,5 @@
 import BlocksOfCardsWithShowMore from "./components/BlocksOfCardsWithShowMore";
 
-function App() {
-  return <BlocksOfCardsWithShowMore />;
-}
+const App = () => <BlocksOfCardsWithShowMore />;
 
 export default App;
