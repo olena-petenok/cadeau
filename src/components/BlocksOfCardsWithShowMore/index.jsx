@@ -8,7 +8,7 @@ const BlocksOfCardsWithShowMore = () =>
   cats?.length ? (
     <ul className="blocks-of-cards-with-show-more">
       {cats.map((element, index) => (
-        <InfoCardWithShowMore data={{ ...element, alt: "cat" }} key={index} />
+        <InfoCardWithShowMore data={{ ...element, alt: "cat", index: index }} />
       ))}
     </ul>
   ) : null;
